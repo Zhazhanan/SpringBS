@@ -1,12 +1,12 @@
 package org.huha.bsresponsewrap.module.utils;
 
-import com.google.common.collect.Lists;
 import org.huha.bsresponsewrap.module.enums.ParameterInvalidItem;
 import org.springframework.util.CollectionUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 
 import javax.validation.ConstraintViolation;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -20,7 +20,7 @@ public class ParameterInvalidItemHelper {
             return null;
         }
 
-        List<ParameterInvalidItem> parameterInvalidItemList = Lists.newArrayList();
+        List<ParameterInvalidItem> parameterInvalidItemList = new ArrayList();
         for (ConstraintViolation<?> cv : cvset) {
             ParameterInvalidItem parameterInvalidItem = new ParameterInvalidItem();
             String propertyPath = cv.getPropertyPath().toString();
@@ -42,7 +42,7 @@ public class ParameterInvalidItemHelper {
             return null;
         }
 
-        List<ParameterInvalidItem> parameterInvalidItemList = Lists.newArrayList();
+        List<ParameterInvalidItem> parameterInvalidItemList = new ArrayList();
         for (ConstraintViolation<?> cv : cvset) {
             ParameterInvalidItem parameterInvalidItem = new ParameterInvalidItem();
             String propertyPath = cv.getPropertyPath().toString();
@@ -64,7 +64,7 @@ public class ParameterInvalidItemHelper {
             return null;
         }
 
-        List<ParameterInvalidItem> parameterInvalidItemList = Lists.newArrayList();
+        List<ParameterInvalidItem> parameterInvalidItemList = new ArrayList();
 
         List<FieldError> fieldErrorList = bindingResult.getFieldErrors();
         for (FieldError fieldError : fieldErrorList) {
